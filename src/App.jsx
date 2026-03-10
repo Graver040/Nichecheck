@@ -22,7 +22,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const categories = ['All', 'Electronics', 'Clothing', 'Home'];
-  
+
   const menuItems = categories.map(cat => ({
     label: cat,
     value: cat,
@@ -53,7 +53,7 @@ function App() {
       <div className="app-container">
         <header className="app-header">
           <ShinyText
-            text="Product Explorer"
+            text="NicheCheck"
             speed={4}
             delay={0}
             color="#839958"
@@ -74,34 +74,34 @@ function App() {
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input 
-              type="text" 
-              placeholder="Search products..." 
+            <input
+              type="text"
+              placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          
+
           <div className="active-category-indicator">
             Viewing: <strong>{selectedCategory}</strong>
           </div>
         </div>
 
-      <div className="results-container">
-        {filteredProducts.length > 0 ? (
-          <div className="product-grid">
-            {filteredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <div className="no-results">
-            <div className="no-results-icon">🔍</div>
-            <p>No products found</p>
-          </div>
-        )}
+        <div className="results-container">
+          {filteredProducts.length > 0 ? (
+            <div className="product-grid">
+              {filteredProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="no-results">
+              <div className="no-results-icon">🔍</div>
+              <p>No products found</p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </>
   );
 }
